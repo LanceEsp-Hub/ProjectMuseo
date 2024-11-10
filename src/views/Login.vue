@@ -1,4 +1,4 @@
-<!-- src/views/Login.vue -->
+<!-- src/views/Login.vue
 <template>
   <div class="login-container">
     <h2>Login</h2>
@@ -41,14 +41,93 @@ export default {
           localStorage.setItem('auth_token', response.data.token);
           localStorage.setItem('user_name', response.data.user.name);
           localStorage.setItem('user_email', response.data.user.email);
-      console.log('Token saved:', response.data.token);
-      this.$router.push('/homepage').catch((err) => {
+      
+          console.log('Token saved:', response.data.token);
+      
+          this.$router.push('/homepage').catch((err) => {
   console.error('Router Error:', err);
 });  // Redirect to dashboard after successful login
         }
       } catch (error) {
         console.error('Login Error:', error);
         this.errorMessage = 'Invalid email or password.';
+      }
+    },
+  },
+};
+</script>
+
+<style scoped>
+.login-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #f7f7f7;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+</style>
+ -->
+
+
+ <template>
+  <div class="login-container">
+    <h2>Login</h2>
+    <form @submit.prevent="handleLogin">
+      <div class="mb-3">
+        <label for="email" class="form-label">Email</label>
+        <input type="email" id="email" v-model="email" class="form-control" required />
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" v-model="password" class="form-control" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+    <div v-if="errorMessage" class="alert alert-danger mt-3">{{ errorMessage }}</div>
+  </div>
+</template>
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      email: '',
+      password: '',
+      errorMessage: '',
+    };
+  },
+  methods: {
+    async handleLogin() {
+      try {
+        const response = await axios.post('http://localhost:3000/api/auth/login', {
+          email: this.email,
+          password: this.password,
+        });
+
+        if (response.status === 200) {
+          // Store the token and role in localStorage
+          localStorage.setItem('auth_token', response.data.token);
+          localStorage.setItem('user_role', response.data.user.role);
+          localStorage.setItem('user_email', response.data.user.email);
+          localStorage.setItem('user_name', response.data.user.name);
+
+
+          console.log('Token saved:', response.data.token);
+
+
+          // Redirect based on role
+          if (response.data.user.role === 'user') {
+            this.$router.push('/homepage');
+          } else if (response.data.user.role === 'admin') {
+            this.$router.push('/admin-dashboard');
+          }
+        }
+      } catch (error) {
+        this.errorMessage = 'Invalid email or password.';
+        console.error('Login error:', error);
       }
     },
   },

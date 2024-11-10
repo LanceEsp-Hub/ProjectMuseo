@@ -1,9 +1,5 @@
 <template>
-  <nav>
-    
-    <router-link to="/about">About</router-link> |
-    <router-link to="/register">Register</router-link> <!-- Link to Register page -->
-  </nav>
+  
   <router-view/>
 </template>
 

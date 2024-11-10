@@ -147,7 +147,7 @@ export default {
 
 /* Hero Section */
 .hero-section {
-  background-image: url('~@/assets/bg_museum.jpg');
+  background-image: url('~@/assets/images/bg_museum.jpg');
   background-size: cover;
   background-position: center;
   height: 80vh;
