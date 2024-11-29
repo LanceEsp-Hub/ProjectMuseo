@@ -1,90 +1,106 @@
 <template>
   <div>
-    <!-- Navbar -->
-    <nav class="navbar navbar-custom navbar-dark">
-      <div class="container d-flex justify-content-between align-items-center">
-        <!-- Social Media Icons and Brand Name -->
-        <div class="d-flex align-items-center">
-          <a href="#" class="text-white me-3"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="text-white me-3"><i class="bi bi-instagram"></i></a>
-          <span class="navbar-brand ms-2">ORIENTAL MINDORO HERITAGE MUSEUM</span>
-        </div>
+    <!-- Modern Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top shadow">
+      <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand fw-bold" href="#">
+          ORIENTAL MINDORO HERITAGE MUSEUM
+        </a>
 
-        <!-- Toggle Button for Navbar Links -->
-        <button class="navbar-toggler" type="button" @click="toggleNavbarLinks">
-          <i class="bi bi-list text-white fs-3"></i>
+        <!-- Toggler for Mobile View -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarContent"
+          aria-controls="navbarContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
         </button>
-      </div>
 
-      <!-- Collapsible Navbar Links Below Header -->
-      <div v-if="showNavbarLinks" id="navbarLinks" class="text-center">
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Exhibits</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="#">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="http://localhost:8080/register">Register</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-white" href="http://localhost:8080/login">Login</a>
-          </li>
-        </ul>
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbarContent">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Exhibits</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+            <!-- Dropdown for Account Actions -->
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="accountDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Account
+              </a>
+              <ul class="dropdown-menu dropdown-menu-end shadow" aria-labelledby="accountDropdown">
+                <li><a class="dropdown-item" href="http://localhost:8080/register">Register</a></li>
+                <li><a class="dropdown-item" href="http://localhost:8080/login">Login</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero-section d-flex align-items-center justify-content-center">
-      <div class="hero-content">
-        <h1>Welcome to Mindoro Heritage Museum</h1>
-        <div class="play-button">
-          <i class="bi bi-play-circle-fill fs-1"></i>
-        </div>
+    <section class="hero-section d-flex align-items-center justify-content-center text-center">
+      <div class="hero-overlay p-5 rounded-3 shadow-lg">
+        <h1 class="text-light fw-bold display-4">Welcome to Mindoro Heritage Museum</h1>
+        <p class="text-light fs-5 mt-4">
+          Explore history, culture, and heritage at your fingertips.
+        </p>
+        <a href="#" class="btn btn-light mt-4 px-4 py-2 shadow-sm">Discover More</a>
       </div>
     </section>
 
     <!-- Introduction Section -->
-    <section class="intro-section">
-      <img src="YOUR_IMAGE_ICON_PATH" alt="Museum Icon" style="width: 60px;" />
-      <h2>Experience history and culture at your fingertips</h2>
-      <div class="divider"></div>
-      <p>
-        The Oriental Mindoro Heritage Museum (OMHM), Calapan, exhibits the province's
-        rich culture and history. Its construction was spearheaded by Governor Bonz
-        Dolor and funded through the General Appropriations Act of 2020 by the National
-        Government. The museum opened its doors to the public during the 71st Founding
-        Anniversary Celebration of the province on November 15, 2021.
+    <section class="intro-section text-center py-6 bg-light">
+      <h2 class="text-primary fw-bold">Experience History and Culture</h2>
+      <div class="divider mx-auto my-4"></div>
+      <p class="lead mx-auto" style="max-width: 800px;">
+        The Oriental Mindoro Heritage Museum (OMHM), Calapan, exhibits the province's rich culture and history. Opened
+        during the 71st Founding Anniversary Celebration of the province on November 15, 2021, it stands as a testament
+        to the efforts of preserving our cultural legacy.
       </p>
     </section>
 
     <!-- Explore Section -->
-    <section class="explore-section">
+    <section class="explore-section py-6">
       <div class="container">
-        <div class="row align-items-center">
+        <div class="row align-items-center g-5">
           <!-- Text Content -->
-          <div class="col-md-6">
-            <h3>Explore what's inside.</h3>
-            <p class="explore-text">
-              Since the Oriental Mindoro Heritage Museum, Calapan, functions as the
-              repository and custodian of varying representations of legacy, it houses
-              cultural artifacts, historical records, evidence of abundant biodiversity,
-              and remarkably collected memorabilia throughout the province. Inside the
-              museum, visitors will see displays of old things used by native Mangyan for
-              their livelihood and household.
+          <div class="col-md-6 order-2 order-md-1">
+            <h3 class="mb-4 fw-bold">Explore What's Inside</h3>
+            <p class="fs-6">
+              As the custodian of Mindoro's heritage, the museum houses cultural artifacts, historical records, and
+              remarkable memorabilia from across the province. Visitors can immerse themselves in the traditions and
+              stories of the Mangyan people and Mindoro’s vibrant history.
             </p>
-            <a href="#" class="book-button">Book a Visit</a>
+            <a href="#" class="btn btn-primary mt-4">Book a Visit</a>
           </div>
           <!-- Image Content -->
-          <div class="col-md-6">
-            <img src="YOUR_IMAGE_PATH_HERE" alt="Museum Interior" class="img-fluid explore-image" />
+          <div class="col-md-6 order-1 order-md-2">
+            <img
+              src="YOUR_IMAGE_PATH_HERE"
+              alt="Museum Interior"
+              class="img-fluid rounded shadow"
+            />
           </div>
         </div>
       </div>
@@ -95,137 +111,93 @@
 <script>
 export default {
   name: "LandingPage",
-  data() {
-    return {
-      showNavbarLinks: false,
-    };
-  },
-  methods: {
-    toggleNavbarLinks() {
-      this.showNavbarLinks = !this.showNavbarLinks;
-    },
-  },
 };
-
-
 </script>
 
 <style scoped>
-/* Header */
-.navbar-custom {
-  background-color: #0a0a0a;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1000;
-  padding: 10px 0;
+/* Navbar */
+.navbar {
+  padding: 1rem 0;
 }
 
 .navbar-brand {
-  font-size: 1.25rem;
-  font-weight: bold;
-  color: white;
+  font-size: 1.5rem;
 }
 
-/* Navbar Links */
-#navbarLinks {
-  background-color: #0a0a0a;
-  width: 100%;
-  padding: 10px 0;
+.nav-link {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
 }
 
-#navbarLinks ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-#navbarLinks .nav-item {
-  margin: 10px 0;
+.navbar .dropdown-menu {
+  border-radius: 10px;
 }
 
 /* Hero Section */
 .hero-section {
-  background-image: url('~@/assets/images/bg_museum.jpg');
-  background-size: cover;
-  background-position: center;
-  height: 80vh;
-  color: white;
-  text-align: center;
-  position: relative;
-  margin-top: 60px;
-}
-
-.hero-content h1 {
-  font-size: 2.5rem;
-  font-weight: bold;
-}
-
-.play-button {
-  display: inline-flex;
+  background: url('~@/assets/images/bg_museum.jpg') no-repeat center center / cover;
+  height: 85vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(0, 128, 0, 0.7);
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  margin-top: 20px;
-  color: white;
-  cursor: pointer;
+  position: relative;
 }
 
-.play-button:hover {
-  background-color: rgba(0, 128, 0, 0.9);
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.75);
+  max-width: 800px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+}
+
+.hero-section p {
+  font-size: 1.25rem;
 }
 
 /* Introduction Section */
 .intro-section {
   text-align: center;
-  padding: 50px 20px;
+  padding: 4rem 0;
 }
 
 .intro-section h2 {
-  font-size: 2rem;
-  font-weight: bold;
-}
-
-.intro-section p {
-  font-size: 1rem;
-  max-width: 600px;
-  margin: 20px auto;
-  line-height: 1.6;
+  font-size: 2.25rem;
 }
 
 .intro-section .divider {
-  width: 50px;
-  height: 3px;
-  background-color: #000;
-  margin: 10px auto;
+  width: 80px;
+  height: 4px;
+  background-color: #0d6efd;
+  margin: 0 auto;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.intro-section p {
+  font-size: 1.125rem;
 }
 
 /* Explore Section */
 .explore-section {
-  padding: 50px 20px;
-  background-color: #f7f7f7;
+  padding: 4rem 0;
 }
 
-.explore-text {
-  font-size: 1rem;
-  line-height: 1.6;
+.explore-section img {
+  border-radius: 15px;
+  border: 2px solid #ddd;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.explore-image {
-  border: 2px solid #000;
-  padding: 10px;
+.explore-section h3 {
+  font-size: 1.75rem;
+  color: #333;
+  margin-bottom: 1.5rem;
 }
 
-.book-button {
-  background-color: #000;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
-  display: inline-block;
-  margin-top: 20px;
+.explore-section p {
+  color: #555;
+  font-size: 1.125rem;
 }
 </style>
